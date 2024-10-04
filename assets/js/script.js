@@ -116,8 +116,8 @@ function displayAdditionQuestion(operand1, operand2) {
 
 function displaySubtractQuestion(operand1, operand2) {
 
-    document.getElementById('operand1').textContent = operand1;     //Call the element by its ID
-    document.getElementById('operand2').textContent = operand2;     //Make the content of the ID the argument that was passed
+    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;     //Is operand1 bigger than operand2? yes=operand1, otherwise=operand2
+    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;     //Is operand2 bigger than operand1? yes=operand2, otherwise=operand1
     document.getElementById('operator').textContent = "-";          //Operator will remain static for the function
 
 }

@@ -16,6 +16,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    document.getElementById('answer-box').addEventListener("keydown", function(event) {     //Listening for a keypress (keydown). Each event creates an object - passed to the function here
+        if(event.key === 'Enter') {                                                         //Declaring which keypress we are looking for - if it is Enter do the next line.
+            checkAnswer();
+        }
+    })
+
     //Addition game to start as soon as the game is loaded
     runGame("addition");
 
@@ -26,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's answer has been processed
  */
 function runGame(gameType) {                                        //gameType passed as an argument for the function
+
+    document.getElementById('answer-box').value = "";               //Make the answer box empty after submitting every attempt
+    document.getElementById('answer-box').focus();                  //focus() sets the cursor to be in the answer-box automatically
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;                  // Math.floor = round down
@@ -116,6 +126,7 @@ function displayAdditionQuestion(operand1, operand2) {
 
 function displaySubtractQuestion(operand1, operand2) {
 
+    //Prevent the second number from being bigger than the first
     document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;     //Is operand1 bigger than operand2? yes=operand1, otherwise=operand2
     document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;     //Is operand2 bigger than operand1? yes=operand2, otherwise=operand1
     document.getElementById('operator').textContent = "-";          //Operator will remain static for the function

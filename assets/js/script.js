@@ -34,6 +34,12 @@ function runGame(gameType) {                                        //gameType p
 
     if (gameType === "addition") {                                  //If game is addition
         displayAdditionQuestion(num1, num2);                        //Display addition question - passing num1 + num2 as arguments
+    } else if (gameType === "subtract") {                           //If game is subtraction
+        displaySubtractQuestion(num1, num2);                        //Display addition question - passing num1 + num2 as argumentselse if {
+    } else if (gameType === "division") {                           //If game is division
+        displayDivisionQuestion(num1, num2);                        //Display addition question - passing num1 + num2 as arguments
+    } else if (gameType === "multiply") {                           //If game is mulitiplication
+        displayMultiplyQuestion(num1, num2);                        //Display addition question - passing num1 + num2 as arguments
     } else {                                                        //Otherwise
         alert(`Unknown game type: ${gameType}`);                    //Display this alert to the user
         throw `Unknown game type: ${gameType}. Aborting!`;          //Send this alert to the console
@@ -72,6 +78,12 @@ function calculateCorrectAnswer() {
 
     if (operator === '+') {                                                     //If operator is exactly equal to
         return [operand1 + operand2, 'addition'];                               //Return the correct answer as an array [answer, nextGame]
+    } else if (operator === '-') {                                                     //If operator is exactly equal to
+        return [operand1 - operand2, 'subtract'];
+    } else if (operator === '/') {                                                     //If operator is exactly equal to
+        return [operand1 / operand2, 'division'];
+    } else if (operator === 'x') {                                                     //If operator is exactly equal to
+        return [operand1 * operand2, 'multiply'];
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
@@ -102,10 +114,26 @@ function displayAdditionQuestion(operand1, operand2) {
     
 }
 
-function displaySubtractQuestion() {
+function displaySubtractQuestion(operand1, operand2) {
+
+    document.getElementById('operand1').textContent = operand1;     //Call the element by its ID
+    document.getElementById('operand2').textContent = operand2;     //Make the content of the ID the argument that was passed
+    document.getElementById('operator').textContent = "-";          //Operator will remain static for the function
 
 }
 
-function displayMultiplyQuestion() {
-    
+function displayMultiplyQuestion(operand1, operand2) {
+
+    document.getElementById('operand1').textContent = operand1;     //Call the element by its ID
+    document.getElementById('operand2').textContent = operand2;     //Make the content of the ID the argument that was passed
+    document.getElementById('operator').textContent = "x";          //Operator will remain static for the function
+
+}
+
+function displayDivisionQuestion(operand1, operand2) {
+
+    document.getElementById('operand1').textContent = operand1;     //Call the element by its ID
+    document.getElementById('operand2').textContent = operand2;     //Make the content of the ID the argument that was passed
+    document.getElementById('operator').textContent = "/";          //Operator will remain static for the function
+
 }
